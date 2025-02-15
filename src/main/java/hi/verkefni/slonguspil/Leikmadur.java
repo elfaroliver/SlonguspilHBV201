@@ -23,7 +23,7 @@ public class Leikmadur {
         reitur += kast;
         //this.reitur += reitur;
         //System.out.println("Leikmaður færist um " + kast + " reiti.");
-        System.out.println("Leikmaður er nú á reit " + this.reitur);
+        //System.out.println("Leikmaður er nú á reit " + this.reitur);
         if (reitur >= max) {
             System.out.println("Leikmaður hefur unnið!");
         }
