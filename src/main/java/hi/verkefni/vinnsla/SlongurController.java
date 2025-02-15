@@ -1,4 +1,4 @@
-package hi.verkefni.slonguspil;
+package hi.verkefni.vinnsla;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;

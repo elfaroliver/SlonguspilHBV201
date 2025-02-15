@@ -1,4 +1,4 @@
-package hi.verkefni.slonguspil;
+package hi.verkefni.vinnsla;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Scanner;

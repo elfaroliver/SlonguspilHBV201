@@ -3,6 +3,6 @@ module hi.verkefni.slonguspil {
     requires javafx.fxml;
 
 
-    opens hi.verkefni.slonguspil to javafx.fxml;
-    exports hi.verkefni.slonguspil;
+    opens hi.verkefni.vinnsla to javafx.fxml;
+    exports hi.verkefni.vinnsla;
 }
