@@ -3,7 +3,7 @@ package hi.verkefni.vinnsla;
 import java.util.HashMap;
 
 public class SlongurStigar {
-    private static HashMap<Integer, Integer> slongurStigar;
+    private HashMap<Integer, Integer> slongurStigar;
 
     private int reitur;
     private int max;
@@ -38,6 +38,14 @@ public class SlongurStigar {
         slongurStigar.put(80, 100);
     }
 
+    public int finnaLendingarreit(int reitur) {
+        return slongurStigar.getOrDefault(reitur, reitur);
+    }
+
+    public void setjaSlongurOgStiga(int fra, int til) {
+        slongurStigar.put(fra, til);
+    }
+
     public HashMap<Integer, Integer> getSlongurStigar() {
         return slongurStigar;
     }
@@ -45,8 +53,7 @@ public class SlongurStigar {
     /**
      *
      */
-    public void move(/*int reitur, int max*/) {
-
+    public void move() {
         this.reitur = 0;
         this.max = 100;
 
@@ -55,26 +62,12 @@ public class SlongurStigar {
         int kast = teningur.getKast();
         reitur += kast;
 
-    }
-
-    public void move(int currentReitur) {
-        if (slongurStigar.containsKey(currentReitur)) {
-            int nyReitur = slongurStigar.get(currentReitur);
-            System.out.println("Leikmaður færist frá reit " + currentReitur + " til reits " + nyReitur);
-            // Breyttu reitnum
-            currentReitur = nyReitur;
-        } else {
-            System.out.println("Leikmaður er á reit " + currentReitur + " og færist ekki.");
+        if (slongurStigar.containsKey(reitur)) {
+            reitur = slongurStigar.get(reitur); // Færir leikmann eftir sssslöngu/stiga
         }
 
         if (reitur >= max) {
             System.out.println("Leikmaður hefur unnið!");
         }
-    }
-
-    public static void main(String[] args) {
-        Leikmadur leikmadur = new Leikmadur(slongurStigar);
-        int reitur = 0;  // Upphafs reitur
-        leikmadur.move(reitur);
     }
 }

@@ -1,23 +1,57 @@
 package hi.verkefni.vinnsla;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
-
-import java.util.HashMap;
+import javafx.beans.property.StringProperty;
 
 public class Leikmadur {
-    private SimpleStringProperty fyrstaNafn;
-    private SimpleStringProperty seinnaNafn;
-    private final HashMap<Integer, Integer> slongurStigar;
-    private int reitur = 0;
-    private int max = 100;
+    private final StringProperty nafn = new SimpleStringProperty();
+    private final IntegerProperty reitur = new SimpleIntegerProperty();
+    //private int reitur = 0;
+    private final int max = 100;
 
-    public Leikmadur(HashMap<Integer, Integer> slongurStigar) {
-        this.slongurStigar = slongurStigar;
+    public Leikmadur(String nafn) {
+        this.nafn.set(nafn);  // Geymir nafnið í nafn-property
+        this.reitur.set(1);    // Byrjar á reit 1
     }
 
-    /**
-     * @param max    er seinasti reiturinn. Sigurreiturinn
-     * @param reitur er nýr reitur leikmanns
-     */
+    public void move(int kast, int max) {
+        int nyrReitur = this.reitur.get() + kast;
+        if (nyrReitur <= max) {
+            this.reitur.set(nyrReitur);
+        } else {
+            this.reitur.set(max);
+        }
+    }
+
+    public String getNafn() {
+        return nafn.get();
+    }
+
+    public int getReitur() {
+        return reitur.get();
+    }
+
+    public IntegerProperty reiturProperty() {
+        return reitur;
+    }
+
+    public StringProperty nafnProperty() {
+        return nafn;
+    }
+
+    public static void main(String[] args) {
+        Leikmadur leikmadur = new Leikmadur("Elfar");
+        System.out.println(leikmadur.getNafn() + " er á reit " + leikmadur.getReitur());
+        leikmadur.move(36, 30);
+        System.out.println(leikmadur.getNafn() + " er á reit " + leikmadur.getReitur());
+    }
+}
+
+/**
+ * @param max    er seinasti reiturinn. Sigurreiturinn
+ * @param reitur er nýr reitur leikmanns
+ */
     /*public void move(int reitur, int max) {
         Teningur teningur = new Teningur();
         teningur.kasta();
@@ -30,41 +64,3 @@ public class Leikmadur {
             System.out.println("Leikmaður hefur unnið!");
         }
     }*/
-
-    public void move(int currentReitur) {
-        Teningur teningur = new Teningur();
-        teningur.kasta();
-        int kast = teningur.getKast();
-        this.reitur += kast;
-        //this.reitur += reitur;
-        //System.out.println("Leikmaður færist um " + kast + " reiti.");
-        //System.out.println("Leikmaður er nú á reit " + this.reitur);
-        if (this.reitur >= max) {
-            System.out.println("Leikmaður hefur unnið!");
-        }
-        if (currentReitur >= max) {
-            System.out.println("Leikmaður hefur unnið!");
-        }
-
-        HashMap<Object, Object> slongurStigar = new HashMap<>();
-        if (slongurStigar.containsKey(currentReitur)) {  // Notaðu this.reitur
-            int nyReitur = (int) slongurStigar.get(this.reitur);  // Uppfærir reit leikmanns ef það er slanga/stigi
-            System.out.println("Leikmaður færist frá reit " + this.reitur + " til reits " + nyReitur);
-            this.reitur = nyReitur;  // Uppfærir reitinn
-        } else {
-            System.out.println("Leikmaður er á reit " + this.reitur + " og færist ekki með slöngu eða stiga.");
-        }
-
-        if (currentReitur == 98) {
-            currentReitur = 78;
-        }
-    }
-
-    public static void main(String[] args) {
-        SimpleStringProperty nafn = new SimpleStringProperty();
-        SlongurStigar slongurStigar = new SlongurStigar();
-        Leikmadur leikmadur = new Leikmadur(slongurStigar.getSlongurStigar());
-        int reitur = 0;
-        leikmadur.move(reitur);
-    }
-}

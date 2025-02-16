@@ -3,27 +3,22 @@ package hi.verkefni.vinnsla;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 
+import java.util.Random;
+
 public class Teningur {
     private static final int MAX = 6;
     private final IntegerProperty talaProperty = new SimpleIntegerProperty(MAX);
+    private final Random random = new Random();
     private int tala;
     private int kast;
-
-    public Teningur() {
-        //IntegerProperty tala = new SimpleIntegerProperty((6) + 1);
-        //this.tala = 6;
-    }
 
     public String toString() {
         return "Kast: " + kast;
     }
 
     public void kasta() {
-        //new Teningur();
-        //System.out.println(new Teningur());
-
-        kast = (int)(Math.random() * MAX) + 1;
-        System.out.println(this);
+        int tala = random.nextInt(MAX) + 1;
+        talaProperty.set(tala);  // Uppfærir talaProperty með nýju tölunni
     }
 
     public int getKast() {
@@ -35,11 +30,11 @@ public class Teningur {
         teningur.kasta();
     }
 
-    public int getTalaProperty() {
+    public int getTala() {
         return talaProperty.get();
     }
 
-    public IntegerProperty talaPropertyProperty() {
+    public IntegerProperty talaProperty() {
         return talaProperty;
     }
 }
