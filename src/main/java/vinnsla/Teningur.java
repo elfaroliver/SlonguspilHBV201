@@ -1,4 +1,4 @@
-package hi.verkefni.vinnsla;
+package vinnsla;
 
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
@@ -16,9 +16,10 @@ public class Teningur {
         return "Kast: " + kast;
     }
 
-    public void kasta() {
+    public int kasta() {
         int tala = random.nextInt(MAX) + 1;
         talaProperty.set(tala);  // Uppfærir talaProperty með nýju tölunni
+        return tala;
     }
 
     public int getKast() {

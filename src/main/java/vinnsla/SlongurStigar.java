@@ -1,4 +1,4 @@
-package hi.verkefni.vinnsla;
+package vinnsla;
 
 import java.util.HashMap;
 
@@ -42,10 +42,6 @@ public class SlongurStigar {
         return slongurStigar.getOrDefault(reitur, reitur);
     }
 
-    public void setjaSlongurOgStiga(int fra, int til) {
-        slongurStigar.put(fra, til);
-    }
-
     public HashMap<Integer, Integer> getSlongurStigar() {
         return slongurStigar;
     }
@@ -69,5 +65,9 @@ public class SlongurStigar {
         if (reitur >= max) {
             System.out.println("Leikmaður hefur unnið!");
         }
+    }
+
+    public boolean containsKey(int reitur) {
+        return true;
     }
 }

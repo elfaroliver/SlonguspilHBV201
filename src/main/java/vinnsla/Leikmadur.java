@@ -1,8 +1,12 @@
-package hi.verkefni.vinnsla;
+package vinnsla;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
+
+import vidmot.*;
 
 public class Leikmadur {
     private final StringProperty nafn = new SimpleStringProperty();
@@ -22,6 +26,7 @@ public class Leikmadur {
         } else {
             this.reitur.set(max);
         }
+        //fxBord.getChildren().add(myCircle);
     }
 
     public String getNafn() {

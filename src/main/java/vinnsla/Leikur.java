@@ -1,7 +1,10 @@
-package hi.verkefni.vinnsla;
+package vinnsla;
 
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.fxml.FXML;
+import javafx.scene.control.Label;
+
 import java.util.*;
 
 public class Leikur {
@@ -9,6 +12,8 @@ public class Leikur {
     private Teningur teningur;
     private SlongurStigar slongurStigar;
     private int leikmadurIndex = 0;
+    @FXML
+    private Label fxSkilabod1;
     private SimpleBooleanProperty leikLokid = new SimpleBooleanProperty(false);
     private SimpleStringProperty sigurvegarinn = new SimpleStringProperty("");
     private SimpleStringProperty nextLeikmadur = new SimpleStringProperty();
@@ -23,6 +28,7 @@ public class Leikur {
         } // Bætir við leikmönnum
         nyrLeikur(); // GO!
     }
+
 
     public void nyrLeikur() {
         for (Leikmadur leikmadur : leikmenn) {
@@ -71,5 +77,13 @@ public class Leikur {
             System.out.print("Á næsti leikmaður að gera?");
             svar = scanner.next();
         }
+    }
+
+    public void setTeningur(Teningur teningur) {
+        this.teningur = teningur;
+    }
+
+    public Teningur getTeningur() {
+        return teningur;
     }
 }
