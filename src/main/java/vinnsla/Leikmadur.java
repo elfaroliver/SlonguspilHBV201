@@ -19,14 +19,13 @@ public class Leikmadur {
         this.reitur.set(1);    // Byrjar á reit 1
     }
 
-    public void move(int kast, int max) {
-        int nyrReitur = this.reitur.get() + kast;
+    public void move(int reitur, int max) {
+        int nyrReitur = this.reitur.get() + reitur;
         if (nyrReitur <= max) {
             this.reitur.set(nyrReitur);
         } else {
             this.reitur.set(max);
         }
-        //fxBord.getChildren().add(myCircle);
     }
 
     public String getNafn() {
@@ -45,12 +44,12 @@ public class Leikmadur {
         return nafn;
     }
 
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         Leikmadur leikmadur = new Leikmadur("Elfar");
         System.out.println(leikmadur.getNafn() + " er á reit " + leikmadur.getReitur());
         leikmadur.move(36, 30);
         System.out.println(leikmadur.getNafn() + " er á reit " + leikmadur.getReitur());
-    }
+    }*/
 }
 
 /**

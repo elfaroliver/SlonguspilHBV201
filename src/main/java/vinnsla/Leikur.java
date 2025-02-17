@@ -12,13 +12,10 @@ public class Leikur {
     private Teningur teningur;
     private SlongurStigar slongurStigar;
     private int leikmadurIndex = 0;
-    @FXML
-    private Label fxSkilabod1;
     private SimpleBooleanProperty leikLokid = new SimpleBooleanProperty(false);
     private SimpleStringProperty sigurvegarinn = new SimpleStringProperty("");
     private SimpleStringProperty nextLeikmadur = new SimpleStringProperty();
 
-    // Smiður
     public Leikur(int fjoldiLeikmanna, int maxReitir) {
         leikmenn = new ArrayList<>(); // Leikmenn
         teningur = new Teningur(); // Teningur
@@ -77,13 +74,5 @@ public class Leikur {
             System.out.print("Á næsti leikmaður að gera?");
             svar = scanner.next();
         }
-    }
-
-    public void setTeningur(Teningur teningur) {
-        this.teningur = teningur;
-    }
-
-    public Teningur getTeningur() {
-        return teningur;
     }
 }

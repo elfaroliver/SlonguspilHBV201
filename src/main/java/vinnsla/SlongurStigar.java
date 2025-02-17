@@ -15,27 +15,16 @@ public class SlongurStigar {
          * Ssssslöngur fyrir neðan
          */
 
-        slongurStigar.put(98, 78);
-        slongurStigar.put(95, 79);
-        slongurStigar.put(93, 69);
-        slongurStigar.put(78, 33);
-        slongurStigar.put(71, 63);
-        slongurStigar.put(55, 23);
-        slongurStigar.put(31, 18);
-        slongurStigar.put(17, 11);
+        slongurStigar.put(23, 14);
+        slongurStigar.put(16, 11);
+        slongurStigar.put(15, 5);
 
         /**
          * Stigar fyrir neðan
          */
         slongurStigar.put(3, 13);
-        slongurStigar.put(12, 32);
-        slongurStigar.put(28, 84);
-        slongurStigar.put(34, 46);
-        slongurStigar.put(42, 50);
-        slongurStigar.put(51, 67);
-        slongurStigar.put(59, 64);
-        slongurStigar.put(72, 92);
-        slongurStigar.put(80, 100);
+        slongurStigar.put(12, 17);
+        slongurStigar.put(13, 18);
     }
 
     public int finnaLendingarreit(int reitur) {
@@ -49,7 +38,7 @@ public class SlongurStigar {
     /**
      *
      */
-    public void move() {
+    /*public void move() {
         this.reitur = 0;
         this.max = 100;
 
@@ -65,7 +54,7 @@ public class SlongurStigar {
         if (reitur >= max) {
             System.out.println("Leikmaður hefur unnið!");
         }
-    }
+    }*/
 
     public boolean containsKey(int reitur) {
         return true;

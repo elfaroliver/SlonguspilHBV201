@@ -1,5 +1,6 @@
 package vidmot;
 
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
@@ -43,31 +44,33 @@ public class SlongurController {
 
     @FXML
     public void initialize() {
-        // Listi af reitum á borðinu
-        List<Node> reitir = fxBord.getChildren();
+        ObservableList<Node> reitir = fxBord.getChildren();
 
         fxTeningur.disableProperty();
 
         fxTeningur.setText("Teningur");
         fxNyrLeikur.setText("Nýr leikur");
         fxSkilabod1.setText("Góðan daginn");
-        fxSkilabod2.setText("Skilaboð 2");
+        fxSkilabod2.setText("Teningaútkoma");
         if (teningur == null) {
             teningur = new Teningur(); // Teningur settur
         }
-        leikur = new Leikur(2, 100);
+        if (leikur == null) {
+            leikur = new Leikur(2, 100);
+        }
+
 
         //this.leikur = new Leikur();
         //this.leikur.setTeningur(new Teningur());
-        fxBord.setStyle("-fx-border-color: black;");
+        //fxBord.setStyle("-fx-border-color: black;");
     }
 
     public void setLeikur(Leikur leikur) {
         this.leikur = leikur;
-        if (this.leikur != null) {
+        /*if (this.leikur != null) {
             this.teningur = new Teningur(); // Setja teninginn ef leikurinn er ekki null
             this.leikur.setTeningur(teningur);  // Setur teninginn í leikinn
-        }
+        }*/
     }
 
     public void fxNyrLeikur(ActionEvent event) {
@@ -89,26 +92,6 @@ public class SlongurController {
             fxSkilabod2.setText("Kastið er: " + utkoma);
         } else {
             fxSkilabod2.setText("Teningur er ekki uppsettur!");
-        }
-    }
-
-    public void move() {
-        Teningur teningur = new Teningur();
-        teningur.kasta();
-        int kast = teningur.getKast();
-        int gamliReitur = reitur; // Gamli staðurinn
-        reitur += kast;
-
-        // Athuga slöngur og stiga
-        this.reitur = slongurStigar.finnaLendingarreit(reitur);
-
-        if (slongurStigar.containsKey(reitur)) {
-            reitur = slongurStigar.finnaLendingarreit(reitur);
-        }
-
-        // Skilaboð ef leikmaður vinnur
-        if (reitur >= max) {
-            System.out.println("Leikmaður hefur unnið!");
         }
     }
 }
